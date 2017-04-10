@@ -6,8 +6,9 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{ titulo | uppercase }}</h1>
-    <h2>{{ subtitulo | lowercase | capitalize}}</h2>
+    <button @click="contador++">Sumar 1</button>
+    <button @click="contador--">Restar 1</button>
+    El contador está en {{ contador }}
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -15,24 +16,17 @@
     let app = new Vue({
       el: '#app',
       data: {
-        titulo: 'Estás en Kinetics',
-        subtitulo: 'Estamos probando la librería de Vue.js'
-      },
-      filters: {
-        uppercase: function (str) {
-          return str.toUpperCase()
-        },
-        lowercase: function (str) {
-          return str.toLowerCase()
-        },
-        capitalize: function(str) {
-          return str.charAt(0).toUpperCase() + str.slice(1);
-         }
-//         capitalize: function(str) {
-//           return str.replace(/^\b\w/g, s => s.toUpperCase())
-// }
-
-      }
+        contador: 0
+      }//,
+      // para este caso se debe usar en la etiqueta button v-on:click="sumar/restar"
+      // methods: {
+      //   sumar: function () {
+      //     this.contador++
+      //   },
+      //   restar: function () {
+      //     this.contador--
+      //   }
+      // }
     })
   </script>
 </body>
